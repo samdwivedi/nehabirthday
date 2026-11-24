@@ -36,16 +36,16 @@ button {
    GATE / PASSWORD SCREEN (RICH TYPOGRAPHY & UTILIZED SPACE)
    ══════════════════════════════════════════════════════════ */
 .gate-shell {
-  min-height: 100svh;
-  height: 100svh;
+  min-height: 100dvh;
+  min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 24px 16px;
   background: radial-gradient(ellipse at 20% 20%, #563d68 0, transparent 40%),
               radial-gradient(ellipse at 80% 85%, #673b61 0, transparent 38%),
               linear-gradient(135deg, #21172d, #30203d 55%, #1e172a);
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .gate-stars {
@@ -136,7 +136,7 @@ button {
   background: #fff;
   outline: none;
   color: var(--ink);
-  font-size: 15px;
+  font-size: 16px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -2478,15 +2478,20 @@ button {
 /* ── Mobile / Tablet Viewport Adjustments ── */
 @media (max-width: 850px) {
   .experience-shell {
+    height: auto;
+    min-height: 100dvh;
+    min-height: 100vh;
+    max-height: none;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .topbar {
-    padding: 0 20px;
-    height: 50px;
-    min-height: 50px;
+    padding: 0 16px;
+    height: 52px;
+    min-height: 52px;
   }
   .story-wrap {
-    padding: 8px 18px 8px;
+    padding: 10px 18px 80px; /* leaves room for bottom controls & music fab */
   }
   .chapter {
     display: flex;
@@ -2499,21 +2504,21 @@ button {
     max-width: 100%;
   }
   .chapter-art {
-    display: none;
+    display: none !important;
   }
   .chapter h1 {
-    font-size: clamp(26px, 6vw, 36px);
+    font-size: clamp(24px, 5.5vw, 34px);
     margin: 0 0 6px;
   }
   .chapter-subtitle {
-    font-size: 15px;
+    font-size: 14.5px;
     line-height: 1.5;
   }
   .chapter-controls {
-    margin-top: 12px;
+    margin-top: 14px;
   }
   .next-button {
-    min-width: 150px;
+    min-width: 140px;
     padding: 11px 18px;
     font-size: 13.5px;
   }
@@ -2523,105 +2528,297 @@ button {
   }
   .final-scene {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
   .story-footer {
-    padding: 6px 0 0;
+    padding: 8px 0 0;
     font-size: 9.5px;
   }
 }
 
 @media (max-width: 520px) {
   .gate-card {
-    padding: 30px 22px 24px;
+    padding: 28px 18px 22px;
     border-radius: 20px;
+    width: 100%;
+  }
+  .gate-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  .gate-card h1 {
+    font-size: 26px;
+  }
+  .gate-copy {
+    font-size: 13px;
+    margin-bottom: 16px;
   }
   .topbar {
-    height: 46px;
-    min-height: 46px;
-    padding: 0 14px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 12px;
+  }
+  .wordmark {
+    font-size: 13px;
+    gap: 8px;
+  }
+  .wordmark-mark {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
   }
   .private-label {
-    font-size: 0;
-  }
-  .private-label svg {
-    width: 14px;
-    height: 14px;
+    display: none;
   }
   .story-wrap {
-    padding: 6px 14px 6px;
+    padding: 8px 12px 84px;
   }
   .chapter h1 {
-    font-size: 27px;
+    font-size: clamp(22px, 6vw, 28px);
   }
   .chapter-subtitle {
-    font-size: 14px;
+    font-size: 13.5px;
   }
   .timeline-card {
     grid-template-columns: 1fr;
     gap: 8px;
+    padding: 12px 14px;
   }
   .timeline-card div {
     padding: 0 0 0 10px;
   }
   .quiz-options {
     grid-template-columns: 1fr;
+    gap: 7px;
+  }
+  .quiz-option-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .quiz-progress-pills {
+    gap: 5px;
+  }
+  .quiz-score-badge {
+    font-size: 11px;
+    padding: 3px 8px;
   }
   .next-button {
     min-width: 0;
-    padding: 10px 16px;
-    font-size: 13px;
+    padding: 10px 14px;
+    font-size: 12.5px;
   }
   .back-button {
     font-size: 12px;
+    padding: 8px 10px;
   }
   .award-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 6px;
+  }
+  .award-grid span {
+    padding: 8px 10px;
+    font-size: 11.5px;
   }
   .dossier {
     padding: 12px 14px;
   }
   .letter-paper {
-    padding: 12px 14px;
+    padding: 14px 14px;
     font-size: 13px;
+    line-height: 1.55;
   }
   .music-fab-wrap {
     bottom: 14px;
-    right: 14px;
-    gap: 8px;
+    right: 12px;
+    gap: 6px;
   }
   .music-fab-main {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
   .music-fab-mute {
     width: 32px;
     height: 32px;
   }
   .vinyl-label {
+    font-size: 11px;
+  }
+
+  /* Memory Photo Card on Mobile */
+  .memory-polaroid-card {
+    width: min(100%, 255px);
+  }
+  .polaroid-inner {
+    height: 360px;
+  }
+  .polaroid-image-frame {
+    height: 275px;
+  }
+  .beauty-message-btn {
+    font-size: 12.5px;
+    padding: 11px 18px;
+    width: 100%;
+    max-width: 290px;
+  }
+
+  /* Cake & Candles on Mobile */
+  .cake-candles {
+    gap: 2.5px;
+    padding: 0 4px;
+  }
+  .candle {
+    width: 6.5px;
+    height: 22px;
+  }
+  .cake-top {
+    width: min(100%, 250px);
     font-size: 12px;
   }
-  .celebration-modal {
-    padding: 28px 20px 22px;
-    border-radius: 22px;
+  .cake-layer.layer-one {
+    width: min(100%, 275px);
+    height: 36px;
   }
-  .celebration-badge {
-    width: 54px;
-    height: 54px;
-    margin-bottom: 10px;
+  .cake-layer.layer-two {
+    width: min(100%, 300px);
+    height: 40px;
   }
-  .celebration-modal h2 {
-    font-size: 26px;
+  .cake-plate {
+    width: min(100%, 320px);
   }
-  .celebration-main-text {
-    font-size: 15px;
+  .cake-instruction {
+    font-size: 12px;
   }
-  .celebration-subtext {
+  .make-wish-btn {
+    font-size: 13px;
+    padding: 10px 18px;
+    width: 100%;
+  }
+  .primary-forward-btn {
+    font-size: 13.5px;
+    padding: 11px 18px;
+    width: 100%;
+  }
+
+  /* Modals and Popups on Mobile */
+  .celebration-overlay {
+    padding: 12px;
+  }
+  .celebration-modal,
+  .wish-modal,
+  .beauty-modal,
+  .final-love-modal,
+  .victory-modal,
+  .stamp-modal {
+    width: 100%;
+    max-height: 90dvh;
+    max-height: 90vh;
+    padding: 24px 16px 20px;
+    border-radius: 20px;
+  }
+  .celebration-badge,
+  .wish-badge,
+  .beauty-icon-bubble,
+  .final-love-icon-bubble {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 8px;
+  }
+  .celebration-modal h2,
+  .wish-modal h2,
+  .beauty-modal-heading,
+  .final-note-main-heading {
+    font-size: 22px;
+  }
+  .celebration-main-text,
+  .beauty-quote-main {
+    font-size: 14.5px;
+  }
+  .celebration-subtext,
+  .beauty-modal-narrative,
+  .final-note-narrative {
     font-size: 12.5px;
   }
-  .celebration-ack-btn {
-    font-size: 14px;
-    padding: 12px 18px;
+  .celebration-ack-btn,
+  .blow-candle-btn,
+  .stamp-forward-btn {
+    font-size: 13.5px;
+    padding: 11px 16px;
+  }
+  .wish-textarea {
+    font-size: 16px; /* Prevents iOS auto-zoom */
+    padding: 10px;
+  }
+  .wish-chips {
+    gap: 6px;
+  }
+  .wish-chip {
+    font-size: 11.5px;
+    padding: 5px 10px;
+  }
+
+  /* Stamp Pop on Mobile */
+  .vintage-stamp-card {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  .stamp-inner-border {
+    padding: 16px 12px 14px;
+  }
+  .stamp-headline-forever {
+    font-size: clamp(18px, 5.5vw, 24px);
+  }
+  .stamp-headline-mine {
+    font-size: clamp(13px, 4vw, 16px);
+  }
+  .stamp-tender-quote {
+    font-size: 12.5px;
+  }
+  .stamp-specs {
+    font-size: 11.5px;
+    padding: 8px 10px;
+  }
+  .stamp-postmark-badge {
+    top: 8px;
+    right: 8px;
+    transform: scale(0.8) rotate(-10deg);
+  }
+}
+
+@media (max-width: 360px) {
+  .memory-polaroid-card {
+    width: 230px;
+  }
+  .polaroid-inner {
+    height: 330px;
+  }
+  .polaroid-image-frame {
+    height: 250px;
+  }
+  .cake-candles {
+    gap: 1.8px;
+  }
+  .candle {
+    width: 5.2px;
+    height: 19px;
+  }
+  .cake-top {
+    width: 215px;
+  }
+  .cake-layer.layer-one {
+    width: 240px;
+  }
+  .cake-layer.layer-two {
+    width: 265px;
+  }
+  .cake-plate {
+    width: 280px;
+  }
+  .chapter h1 {
+    font-size: 21px;
+  }
+  .topbar {
+    padding: 0 10px;
   }
 }
 
